@@ -1,0 +1,6 @@
+{
+	"port": 8080,
+	"mongoUri": "mongodb+srv://valera545:backend-1234@cluster0.xlfdv.mongodb.net/app?retryWrites=true&w=majority",
+	"accessSecret": "super secret from backend",
+	"refreshSecret": "super refresh key"
+}

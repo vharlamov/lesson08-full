@@ -5,6 +5,7 @@ const chalk = require('chalk')
 const initDatabase = require('./startUp/initDatabase')
 const routes = require('./routes')
 const cors = require('cors')
+const path = require('path')
 
 const app = express()
 
@@ -19,6 +20,16 @@ app.use('/api', routes) // Middleware для роутинга
 // } else if (process.env.NODE_ENV === 'development') {
 // 	console.log('Development')
 // }
+
+if (process.env.NODE_ENV === 'production') {
+	app.use('/', express.static(path.join(__dirname, 'client')))
+
+	const indexPath = path.join(__dirname, 'client', 'index.html')
+
+	app.get('*', (req, res) => {
+		res.sendFile(indexPath)
+	})
+}
 
 const PORT = config.get('port') ?? 8080 // Берёт значение порта из config/default.json
 

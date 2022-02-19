@@ -31,7 +31,8 @@ if (process.env.NODE_ENV === 'production') {
 	})
 }
 
-const PORT = config.get('port') ?? 8080 // Берёт значение порта из config/default.json
+// const PORT = config.get('port') ?? 8080 // Берёт значение порта из config/default.json
+const PORT = process.env.PORT // Берёт значение порта из окружения
 
 async function start() {
 	try {

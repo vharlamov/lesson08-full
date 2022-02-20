@@ -6,6 +6,7 @@ const initDatabase = require('./startUp/initDatabase')
 const routes = require('./routes')
 const cors = require('cors')
 const path = require('path')
+const env = require('dotenv').config().parsed
 
 const app = express()
 
@@ -32,7 +33,8 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // const PORT = config.get('port') ?? 8080 // Берёт значение порта из config/default.json
-const PORT = process.env.PORT // Берёт значение порта из окружения
+const PORT = env.PORT ?? 8080 // Берёт значение порта из окружения
+console.log('process.env', env)
 
 async function start() {
 	try {

@@ -3,6 +3,7 @@
 	"version": "1.0.0",
 	"description": "server",
 	"main": "index.js",
+	"PORT": "cross-env NODE_PORT=8080",
 	"scripts": {
 		"start": "cross-env NODE_ENV=production node app.js",
 		"serve": "cross-env NODE_ENV=development nodemon app.js"
@@ -14,6 +15,7 @@
 		"chalk": "^4.1.2",
 		"config": "^3.3.7",
 		"cors": "^2.8.5",
+		"dotenv": "^16.0.0",
 		"express": "^4.17.2",
 		"express-validator": "^6.14.0",
 		"jsonwebtoken": "^8.5.1",

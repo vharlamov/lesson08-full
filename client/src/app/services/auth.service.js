@@ -2,11 +2,13 @@ import axios from "axios";
 import localStorageService from "./localStorage.service";
 import config from "../config.json";
 
+const env = require("dotenv").config().parsed;
+
 const httpAuth = axios.create({
     baseURL: config.apiEndpoint + "auth/",
     params: {
         key: process.env.REACT_APP_FIREBASE_KEY,
-        PORT: process.env.PORT
+        PORT: env.PORT
     }
 });
 
